@@ -18,3 +18,5 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file CDL_to_NetCDF_converter/pom.xml
+    - name: Run java program
+      run: java -cp CDL_to_NetCDF_converter/target/cdl_to_netcdf_converter-1.0-SNAPSHOT.jar uk.gov.meto.netcdf.cdl.Application 
