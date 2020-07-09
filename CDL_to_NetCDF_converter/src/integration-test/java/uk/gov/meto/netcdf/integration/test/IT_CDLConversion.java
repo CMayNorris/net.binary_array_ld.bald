@@ -9,6 +9,9 @@ import ucar.nc2.NetcdfFile;
 import java.io.IOException;
 
 import org.junit.Test;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.fail;
 
 public class IT_CDLConversion {
 	
@@ -25,15 +28,20 @@ public class IT_CDLConversion {
 		  String filename = "C:/data/my/file.nc";
 		  NetcdfFile ncfile = null;
 		  try {
+			  assertNull(ncfile);
 		    ncfile = NetcdfFile.open(filename);
 		   // process( ncfile);
 		  } catch (IOException ioe) {
+			fail("Unexpected exception: " + ioe.getMessage());
 		    LOG.error("trying to open " + filename, ioe);
 		  } finally { 
 		    if (null != ncfile) try {
 		      ncfile.close();
+		      System.out.println(ncfile.toString() );
 		      LOG.debug(ncfile.toString());
+		      assertNotNull(ncfile);
 		    } catch (IOException ioe) {
+		      fail("Unexpected exception: " + ioe.getMessage());
 		      LOG.error("trying to close " + filename, ioe);
 		    }
 		  }
