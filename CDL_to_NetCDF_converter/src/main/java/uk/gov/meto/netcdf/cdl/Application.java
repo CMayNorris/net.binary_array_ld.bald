@@ -1,5 +1,6 @@
 package uk.gov.meto.netcdf.cdl;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
@@ -12,13 +13,15 @@ public class Application {
 
 	public static void main(String[] args) {
 		URL url = Application.class.getClass().getResource("/array_geo.cdl");
-		System.out.println("Starting the main method: " + url.toString());
-		String command = "ncgen -o " + "array_geo.nc" + " " + "array_geo.cdl";
+		System.out.println("Starting the main method: " + url.getPath());
+		String command = "ncgen -o " + "array_geo.nc" + " " + url.getPath();
 		LOG.debug("Command is: {}", command);
 		Process process;
 		try {
+			System.out.println(new File(url.getPath()).exists());
 			process = Runtime.getRuntime().exec(command);
 			int exitCode = process.waitFor();
+			System.out.println(new File("array_geo.nc").exists());
 		} catch (Exception e) {
 			LOG.error("process creation failed");
 		}
