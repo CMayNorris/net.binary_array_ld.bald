@@ -16,8 +16,6 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: netcdf package
-      run: module load scitools
     - name: Test with Maven
       run: mvn -B clean test --file CDL_to_NetCDF_converter/pom.xml -P dev
     - name: Integration Test with maven
