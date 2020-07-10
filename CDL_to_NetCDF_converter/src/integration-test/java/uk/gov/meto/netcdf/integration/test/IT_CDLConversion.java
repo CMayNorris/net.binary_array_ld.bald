@@ -35,11 +35,11 @@ public class IT_CDLConversion {
 			fail("Unexpected exception: " + ioe.getMessage());
 		    LOG.error("trying to open " + filename, ioe);
 		  } finally { 
+			assertNotNull(ncfile);
 		    if (null != ncfile) try {
 		      ncfile.close();
 		      System.out.println(ncfile.toString() );
 		      LOG.debug(ncfile.toString());
-		      assertNotNull(ncfile);
 		    } catch (IOException ioe) {
 		      fail("Unexpected exception: " + ioe.getMessage());
 		      LOG.error("trying to close " + filename, ioe);

@@ -2,7 +2,8 @@ package uk.gov.meto.netcdf.cdl;
 
 import java.io.IOException;
 
-import uk.gov.meto.netcdf.integration.test.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Application {
 	
@@ -11,6 +12,7 @@ public class Application {
 	public static void main(String[] args) {
 		System.out.println("Starting the main method");
 		String command = "ncgen -o " + "C:/data/my/file.nc" + " " + "array_geo.cdl";
+		LOG.debug("Command is: {}", command);
 		Process process;
 		try {
 			process = Runtime.getRuntime()
