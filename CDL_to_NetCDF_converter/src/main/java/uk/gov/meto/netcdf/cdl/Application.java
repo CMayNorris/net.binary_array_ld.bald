@@ -18,7 +18,7 @@ public class Application {
 			process = Runtime.getRuntime()
 				      .exec(command);
 			int exitCode = process.waitFor();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			LOG.error("process creation failed");
 		}
 		
