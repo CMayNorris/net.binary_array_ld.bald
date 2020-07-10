@@ -8,6 +8,7 @@ import ucar.nc2.NetcdfFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 import org.junit.Test;
 import static org.junit.Assert.assertNotNull;
@@ -21,7 +22,6 @@ public class IT_CDLConversion {
 
 	@Test
 	public void shouldConvertToReadableNetCDF() {
-		assertTrue(new File("array_geo.cdl").exists());
 		Application app = new Application();
 		app.main(null);
 		String filename = "array_geo.nc";
