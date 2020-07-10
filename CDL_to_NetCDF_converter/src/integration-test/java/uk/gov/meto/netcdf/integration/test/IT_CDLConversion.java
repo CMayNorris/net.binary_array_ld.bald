@@ -23,7 +23,11 @@ public class IT_CDLConversion {
 	@Test
 	public void shouldConvertToReadableNetCDF() {
 		Application app = new Application();
-		app.main(null);
+		try {
+			app.main(null);
+		} catch (Exception e) {
+			fail("Unexpected exception: " + e.getMessage());
+		}
 		String filename = "array_geo.nc";
 		NetcdfFile ncfile = null;
 		try {
