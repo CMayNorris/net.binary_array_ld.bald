@@ -1,6 +1,7 @@
 package uk.gov.meto.netcdf.integration.test;
 
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import uk.gov.meto.netcdf.cdl.Application;
 import ucar.nc2.NetcdfFile;
@@ -14,7 +15,7 @@ import static org.junit.Assert.fail;
 
 public class IT_CDLConversion {
 
-	private static final Logger LOG = Logger.getLogger(IT_CDLConversion.class);
+	private static final Logger LOG = LoggerFactory.getLogger(IT_CDLConversion.class);
 
 	@Test
 	public void shouldConvertToReadableNetCDF() {

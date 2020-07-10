@@ -3,10 +3,11 @@ package uk.gov.meto.netcdf.cdl;
 import java.io.IOException;
 
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Application {
 
-	private static final Logger LOG = Logger.getLogger(Application.class);
+	private static final Logger LOG = LoggerFactory.getLogger(Application.class);
 
 	public static void main(String[] args) {
 		System.out.println("Starting the main method");
