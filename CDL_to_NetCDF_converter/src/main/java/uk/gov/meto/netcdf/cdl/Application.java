@@ -11,7 +11,7 @@ public class Application {
 
 	public static void main(String[] args) {
 		System.out.println("Starting the main method");
-		String command = "ncgen -o " + "C:/data/my/file.nc" + " " + "array_geo.cdl";
+		String command = "ncgen -o " + "array_geo.nc" + " " + "array_geo.cdl";
 		LOG.debug("Command is: {}", command);
 		Process process;
 		try {

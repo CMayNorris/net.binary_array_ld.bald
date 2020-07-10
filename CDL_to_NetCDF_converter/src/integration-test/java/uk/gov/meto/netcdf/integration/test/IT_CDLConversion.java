@@ -6,11 +6,13 @@ import org.slf4j.LoggerFactory;
 import uk.gov.meto.netcdf.cdl.Application;
 import ucar.nc2.NetcdfFile;
 
+import java.io.File;
 import java.io.IOException;
 
 import org.junit.Test;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 public class IT_CDLConversion {
@@ -19,9 +21,10 @@ public class IT_CDLConversion {
 
 	@Test
 	public void shouldConvertToReadableNetCDF() {
+		assertTrue(new File("array_geo.cdl").exists());
 		Application app = new Application();
 		app.main(null);
-		String filename = "C:/data/my/file.nc";
+		String filename = "array_geo.nc";
 		NetcdfFile ncfile = null;
 		try {
 			assertNull(ncfile);
