@@ -17,6 +17,9 @@ public class Application {
 	public static void main(String[] args) throws Exception {
 		URL url = Application.class.getClass().getResource("/array_geo.cdl");
 		System.out.println("Starting the main method: " + url.getPath());
+		File cdlFile = new File(url.getPath());
+		System.out.println("exists: " + cdlFile.exists());
+		System.out.println(cdlFile.getCanonicalPath());
 		List<String> callParams = new ArrayList<String>(
 		        Arrays.asList("ncgen", "-o", "array_geo.nc", url.getPath()));
 		LOG.debug("Command is: {}", callParams);
